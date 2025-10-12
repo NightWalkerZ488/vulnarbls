@@ -25,7 +25,45 @@
 
 ### Ответ:
 
+Сперва просканируем виртуальную машину Meatssploitable c помощью Nmap:
 
+
+```nmap -sV -sC -p- 192.168.123.7```
+
+Видим разрешённые службы:
+
+    FTP (vsftpd 2.3.4)  
+    SSH (OpenSSH 4.7p1)  
+    Telnet  
+    SMB (Samba 3.0.20-Debian)  
+    HTTP (Apache + PHP)  
+    UnrealIRCd 3.2.8.1  
+    MySQL  
+    PostgreSQL  
+    VNC
+     
+С помощью сайта "https://www.exploit-db.com/" обнаружены уязвимости: 
+
+1. UnrealIRCd 3.2.8.1 Backdoor Command Execution
+   
+    Служба: IRC (порт 6667) - вредоносный бэкдор, внедрённый в исходный код UnrealIRCd в 2010 году. Позволяет выполнить произвольные команды.
+   
+    Exploit-DB: https://www.exploit-db.com/exploits/13853. 
+     
+
+2. Samba 3.0.20 < 3.0.25rc3 - Username map script Command Execution
+   
+    Служба: SMB (порты 139/445) - уязвимость в параметре username map script, позволяющая выполнить команды от имени root.
+   
+    Exploit-DB: https://www.exploit-db.com/exploits/16320. 
+     
+
+3. vsftpd 2.3.4 - Backdoor Command Execution
+   
+    Служба: FTP (порт 21) - в версии 2.3.4 был внедрён бэкдор, активируемый при отправке определённого имени пользователя.
+   
+    Exploit-DB: https://www.exploit-db.com/exploits/17491.
+     
 
 ### Задание 2
 
