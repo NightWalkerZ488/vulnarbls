@@ -30,6 +30,8 @@
 
 ```nmap -sV -sC -p- 192.168.123.7```
 
+![scan](https://github.com/NightWalkerZ488/vulnarbls/blob/main/nmap.PNG)
+
 Видим разрешённые службы:
 
     FTP (vsftpd 2.3.4)  
