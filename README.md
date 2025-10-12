@@ -82,3 +82,23 @@
 
 ### Ответ:
 
+Для выполнения поставленных задач необходимо запустить на "атакующей" машине Wireshark, и начать захват трафика на интерфейсе, через который имеется связь с metasploitable.
+
+![shark](https://github.com/NightWalkerZ488/vulnarbls/blob/main/shark1.PNG)
+
+Далее, необходимо сканировать различными режимами нашу "цель", а именно машина с ip: 192.168.123.7. Для этого вводим команды для различных режимов сканрования:
+
+SYN scan: nmap -sS 192.168.1.105;
+
+FIN scan: nmap -sF 192.168.1.105;
+
+Xmas scan: nmap -sX 192.168.1.105;
+
+UDP scan: nmap -sU 192.168.1.105.
+
+Всё, что происходит во время работы Nmap регистрирует Wireshark.
+
+![scan](https://github.com/NightWalkerZ488/vulnarbls/blob/main/shark2.PNG)
+
+
+
